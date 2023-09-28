@@ -25,7 +25,7 @@ module.exports = () => {
       // Configure WebpackPwaManifest to generate a manifest file
       new WebpackPwaManifest({
         name: 'Text Editor App',
-        short_name: 'Editor',
+        short_name: 'Editor App',
         description: 'A text editor app for offline use',
         background_color: '#ffffff',
         theme_color: '#3498db',
