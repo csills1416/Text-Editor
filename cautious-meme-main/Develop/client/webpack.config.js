@@ -17,7 +17,7 @@ module.exports = () => {
     plugins: [
       // Configure HtmlWebpackPlugin to generate an HTML file
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         filename: 'index.html',
         chunks: ['main'],
       }),
@@ -40,7 +40,8 @@ module.exports = () => {
 
       // Configure InjectManifest for the service worker
       new InjectManifest({
-        swSrc: './src/service-worker.js',
+        swSrc: './src-sw.js',
+        swDest: 'src-sw.js', 
       }),
     ],
 
