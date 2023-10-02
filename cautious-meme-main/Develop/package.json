@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
+"scripts": {
     "start": "node server.js",
-    "client": "webpack --config webpack.config.js --mode production --display-modules --omit=dev",
-    "build": "webpack --config webpack.config.js --mode production",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
     "start:dev": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "if-env NODE_ENV=production && npm start || npm run start:dev",
+    "server": "cd server nodemon server.js --ignore client",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"

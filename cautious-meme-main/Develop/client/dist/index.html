@@ -27,7 +27,7 @@
      <h1> Just Another Text Editor</h1>
      
       <div class="navbar-brand" 
-            ><img src="./assets/logo/"
+            ><img src="./assets/icons/icon_96x96.png"
           /></div>
     </nav>
 
@@ -39,7 +39,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('.client/src-sw.js') // Adjust the path to your service worker file
+          navigator.serviceWorker.register('/src/js/src-sw.js')
             .then((registration) => {
               console.log('Service Worker registered with scope:', registration.scope);
             })
@@ -48,7 +48,6 @@
             });
         });
       }
-    </script>
-    
+    </script>    
   </body>
 </html>
