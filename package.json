@@ -1,0 +1,28 @@
+{
+  "name": "JATE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "start:dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && nodemon server.js --ignore client",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chris",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
