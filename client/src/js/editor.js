@@ -26,8 +26,10 @@ export default class {
     // Fall back to localStorage if nothing is stored in indexeddb, and if neither is available, set the value to header.
     getDb().then((data) => {
       console.info('Loaded data from IndexedDB, injecting into editor');
-      this.editor.setValue(data || localData || header);
-    });
+      const content = typeof data === 'string' ? data : localData;
+      this.editor.setValue(content || header);
+  });
+  
 
     this.editor.on('change', () => {
       localStorage.setItem('content', this.editor.getValue());
@@ -38,5 +40,12 @@ export default class {
       console.log('The editor has lost focus');
       putDb(localStorage.getItem('content'));
     });
-  }
+    //Added safeguard.
+    const contentToSet = data || localData || header;
+    if (typeof contentToSet === 'string') {
+        this.editor.setValue(contentToSet);
+    } else {
+        console.error('Unexpected non-string value:', contentToSet);
+    } 
+ }
 }
