@@ -35,20 +35,6 @@
       <div class="loading-container">
         <div class="loading-spinner"></div>
       </div>
-    </main>
-    <script src="/js/install.js"></script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/src/js/src-sw.js')
-            .then((registration) => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch((error) => {
-              console.error('Service Worker registration failed:', error);
-            });
-        });
-      }
-    </script>    
+    </main> 
   </body>
 </html>
